@@ -58,6 +58,75 @@ export default function MapViewComponent() {
 
   const GOOGLE_MAPS_APIKEY = 'TU_API_KEY'; // Necesitarás una clave de API de Google Maps
 
+  const [fixedLocations, setFixedLocations] = useState([
+    {
+      latitude: 20.6533474,
+      longitude: -100.4046172,
+      title: 'Entrada principa',
+      description: 'Acceso 1'
+    },
+    {
+      latitude: 20.6543228,
+      longitude: -100.4046271,
+      title: 'Edificio DTAI',
+      description: 'División de Tecnologías de Automatización e Información'
+    }
+    ,{
+      latitude: 20.6541214,
+      longitude:  -100.4041198,
+      title: 'Módulo Sanitario 1',
+      description: ''
+    },{
+      latitude: 20.6543228,
+      longitude: -100.4046271,
+      title: 'Edificio DTAI',
+      description: 'División de Tecnologías de Automatización e Información'
+    },
+    {
+      latitude: 20.6543096,
+      longitude: -100.4054418,
+      title: 'Rectoría',
+      description: 'Tramites institucionales'
+    },
+    {
+      latitude:  20.6540485,
+      longitude: -100.4060981,
+      title: 'Vinculación escolar',
+      description: 'Inscripciones, becas, etc.'
+    },
+    {
+      latitude: 20.6549875,
+      longitude: -100.4062969,
+      title: 'Edificio De Medios',
+      description: 'División Idiomas'
+    },
+    {
+      latitude: 20.6544725,
+      longitude: -100.4041274,
+      title: 'División Industrial',
+      description: 'Edificio F'
+    },
+    
+    {
+      latitude: 20.6549875,
+      longitude: -100.4062969,
+      title: 'División de tecnología ambiental',
+      description: 'Edificio G'
+    },
+    {
+      latitude: 20.6557433,
+      longitude: -100.4048658,
+      title: 'Edificio de Nanotecnología',
+      description: 'Edificio H'
+    },
+    {
+      latitude: 20.6560881,
+      longitude: -100.4060255,
+      title: 'Auditorio UTEQ',
+    }
+    // Puedes añadir más ubicaciones aquí
+  ]);
+
   return (
     <View style={styles.container}>
       {errorMsg ? (
@@ -72,6 +141,15 @@ export default function MapViewComponent() {
           showsMyLocationButton={true}
           onPress={handleMapPress}
         >
+          {fixedLocations.map((loc, index) => (
+            <Marker
+              key={index}
+              coordinate={loc}
+              title={loc.title}
+              description={loc.description}
+              pinColor="green"
+            />
+          ))}
           {location && destination && (
             <MapViewDirections
               origin={{
