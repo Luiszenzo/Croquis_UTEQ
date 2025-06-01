@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "Proyecto",
+    "slug": "Proyecto",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "proyecto",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Necesitamos acceder a tu ubicación para mostrarte en el mapa",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Necesitamos acceder a tu ubicación para proporcionar indicaciones"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION"
+      ]
+    },
+    "dependencies": {
+  "react-native-maps": "^x.x.x",
+  "react-native-maps-directions": "^x.x.x",
+  "expo-location": "^x.x.x"
+},
+    "plugins": [
+      "expo-router",
+      "expo-location",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
